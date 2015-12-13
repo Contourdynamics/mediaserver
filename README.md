@@ -3,7 +3,7 @@ Media Server is a Converged Application framework which helps smartcommunication
 
 Media Server is a combination of modules/Applications of different types which includes:
 
-1- Business
+1- Business - FUP, Business Rules Engine based on User statuses. etc custom logic
 
 2- Registrations- Location, AUTH
 
