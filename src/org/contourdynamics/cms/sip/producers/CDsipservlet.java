@@ -22,6 +22,8 @@ public class CDsipservlet extends SipServlet implements SipErrorListener, Servle
 	/**
 	 * 
 	 */
+	private static final String CONTACT_HEADER = "Contact";
+	
 	private SipFactory sipFactory;
 	
 	private static final long serialVersionUID = 1L;
@@ -42,8 +44,21 @@ public class CDsipservlet extends SipServlet implements SipErrorListener, Servle
 	}
 	@Override 
 	public void doRegister(SipServletRequest register) throws ServletException, IOException {
-		int var = 0;
+		int response = SipServletResponse.SC_OK;
+		SipServletResponse resp = register.createResponse(response);
 		
+		Address address = register.getAddressHeader(CONTACT_HEADER);
+		String fromURI = register.getFrom().getURI().toString();
+		
+		int expires = address.getExpires();
+		if(expires < 0) {
+			expires = register.getExpires();
+		}
+		if(expires == 0) {
+		} else {
+			resp.setAddressHeader(CONTACT_HEADER, address);
+		}				
+		resp.send();
 	}
 	
 	@Override

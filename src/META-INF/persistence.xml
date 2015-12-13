@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="contourdynamic" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/contourdynamics</jta-data-source>
+
+
+ 		<class>org.contourdynamics.cms.Entities.BpTypeCode</class>
+        <class>org.contourdynamics.cms.Entities.BpCmpy</class>
+        <class>org.contourdynamics.cms.Entities.BpContactAccount</class>
+        <class>org.contourdynamics.cms.Entities.BpIndv</class>
+        <class>org.contourdynamics.cms.Entities.BpMain</class>
+        <class>org.contourdynamics.cms.Entities.Realm</class>
+        <class>org.contourdynamics.cms.Entities.BpRoles</class>
+        <class>org.contourdynamics.cms.Entities.BpSysUser</class>       
+        <class>org.contourdynamics.cms.Entities.ContactAccountCode</class>
+        <class>org.contourdynamics.cms.Entities.GenderCode</class>
+        <class>org.contourdynamics.cms.Entities.StatusCode</class>
+        <class>org.contourdynamics.cms.Entities.TitleCode</class> 
+        <class>org.contourdynamics.cms.Entities.RoleCode</class>        
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="validate"/>
+			<property name="hibernate.max_fetch_depth" value="3"/>
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.id.new_generator_mappings" value="false"/>
+			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="identity" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/CDSidentity</jta-data-source>
+        <class>org.contourdynamics.cms.idm.entity.ApplicationAccessTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.ApplicationTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.ApplicationRealmTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.GrantTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.GroupTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.RealmTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.RoleTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.UserTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.PasswordCredentialTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.PartitionTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.AbstractIdentityTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.RelationshipTypeEntity</class>
+        <class>org.contourdynamics.cms.idm.entity.RelationshipIdentityTypeEntity</class>
+        
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+			<property name="hibernate.hbm2ddl.auto" value="validate"/>
+			<property name="hibernate.max_fetch_depth" value="3"/>
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.id.new_generator_mappings" value="false"/>
+			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
+		</properties>
+	</persistence-unit>
+</persistence>

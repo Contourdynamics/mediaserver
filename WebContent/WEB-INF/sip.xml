@@ -1,0 +1,32 @@
+<sip-app>
+	<app-name>org.contourdynamics.cms.sip.producers.CDsipservlet</app-name>
+	<display-name>Simple Sip Servlet</display-name>
+	<description>Simple Sip Servlet</description>
+	
+	<servlet-selection>
+		<main-servlet>
+			org.contourdynamics.cms.sip.producers.CDsipservlet
+		</main-servlet>
+	</servlet-selection>
+
+	<servlet>
+		<servlet-name>org.contourdynamics.cms.sip.producers.CDsipservlet</servlet-name>
+		<display-name>SimpleSipServlet</display-name>
+		<description>Simple SIP servlet</description>
+		<servlet-class>
+			org.contourdynamics.cms.sip.producers.CDsipservlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<context-param>
+      <param-name>bye.delay</param-name>
+      <param-value>60000</param-value>
+    </context-param>
+    
+    <listener>
+		<listener-class>
+			org.contourdynamics.cms.sip.producers.CDsipservlet
+		</listener-class>
+	</listener>
+</sip-app>
